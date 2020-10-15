@@ -17,7 +17,7 @@ public class Main {
                     TimeUnit.MILLISECONDS.sleep(10000);
                 }
                 catch (InterruptedException e) {
-
+                    e.printStackTrace();
                 }
             }
         });
@@ -39,7 +39,7 @@ public class Main {
                                 try {
                                     obj.wait(500);
                                 } catch (InterruptedException e) {
-
+                                    e.printStackTrace();
                                 }
                             }
                         }
