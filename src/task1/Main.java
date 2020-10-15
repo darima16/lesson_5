@@ -11,7 +11,7 @@ public class Main {
     int id=0;
     int remove_id;
 
-    public void increment(){
+    public void funcmain(){
         timeThread = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -81,6 +81,6 @@ public class Main {
     }
     public static void main(String[] args) {
         task1.Main main = new task1.Main();
-        main.increment();
+        main.funcmain();
     }
 }
