@@ -5,7 +5,7 @@ public class Person {
     private String firstName;
     private String surName;
     private String city;
-    private int age;
+    public int id;
 
 
 
@@ -21,8 +21,8 @@ public class Person {
         this.city = city;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setId(int id) {
+        this.id = id;
     }
 
 

@@ -5,6 +5,6 @@ public interface PersonBuilder {
     PersonBuilder firstName(String firstName);
     PersonBuilder surName(String serName);
     PersonBuilder city(String city);
-    PersonBuilder age(int age);
+    PersonBuilder id(int id);
 
 }

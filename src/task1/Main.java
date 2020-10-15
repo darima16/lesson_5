@@ -8,6 +8,8 @@ public class Main {
     private ArrayList<Person> list_person = new ArrayList<Person>();
     final Object obj = new Object();
     private Thread timeThread;
+    int id=0;
+    int remove_id;
 
     public void increment(){
         timeThread = new Thread(new Runnable() {
@@ -25,17 +27,18 @@ public class Main {
             @Override
             public void run() {
                 while (timeThread.isAlive()) {
-                        System.out.println(timeThread.getState());
+                        //System.out.println(timeThread.getState());
                         synchronized (obj) {
                             if (list_person.size() < len) {
-
+                                id++;
                                 PersonBuilder builder = new PersonBuilderImp();
-                                Person person = builder.firstName("Vanya").build();
+                                Person person = builder.firstName("Vanya").id(id).build();
 
                                 list_person.add(person);
 
-                                System.out.println("new pers is added");
-                                System.out.println(list_person.size());
+                                System.out.print("Новый пользователь добавлен c id: ");
+                                System.out.println(id);
+                                //System.out.println(list_person.size());
                                 try {
                                     obj.wait(500);
                                 } catch (InterruptedException e) {
@@ -54,10 +57,11 @@ public class Main {
 
                     synchronized (obj) {
                         if (!list_person.isEmpty()) {
+                            remove_id=list_person.get(0).id;
                             list_person.remove(0);
-                            System.out.println("pers removed");
+                            System.out.print("Пользователь удален с id: ");
+                            System.out.println(remove_id);
 
-                            System.out.println(list_person.size());
                             try {
                                 int random_number = (int) (Math.random() * (1000-100)+100);
                                 obj.wait(random_number);
@@ -66,10 +70,8 @@ public class Main {
                             }
                         }
                     }
-
-
-
-            }}
+                }
+            }
         });
         timeThread.start();
         producer.start();

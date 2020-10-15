@@ -33,8 +33,8 @@ public class PersonBuilderImp implements PersonBuilder{
     }
 
     @Override
-    public PersonBuilder age(int age) {
-        person.setAge(age);
+    public PersonBuilder id(int id) {
+        person.setId(id);
         return this;
     }
 }
